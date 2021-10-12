@@ -82,4 +82,4 @@ All the data you give the application, is simply recorded on your local storage.
 
 Some features may not work on this version.
 
-Finally, this version is just a functionnal prototype. That's why that web application is so ugly. The next version will be made with React and will be really better than this one for sure.
+Finally, this version is just a functionnal prototype. That's why that web application is so ugly. The next version will be made with React and Python (for AI algorithms). It will be better than this one for sure.
