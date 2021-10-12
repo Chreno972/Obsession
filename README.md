@@ -1,4 +1,4 @@
-# PROJECT OBSESSION V.1.0
+# OBSESSION V.1.0
 
 ## History
 
