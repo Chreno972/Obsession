@@ -1,0 +1,48 @@
+body {
+    background-image: url("/assets/img/pexels-content-pixie-2736499.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#conection_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    margin: 10% auto 0 auto;
+    border-radius: 5%;
+}
+input{
+    margin-bottom: 20px;
+    border-radius: 15px;
+    border: none;
+    padding-left: 10px;
+    transition: 1s ease-in-out;
+    &:hover {
+        box-shadow: 3px 8px 5px #222;
+        transition: 1s ease-in-out;
+    }
+    &:focus{
+        outline: none;
+    }
+}
+
+#the_validation {
+    transition: 1s ease-in-out;
+    width: 195px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 15px;
+    &:hover {
+        box-shadow: 3px 8px 5px #222;
+        transition: 1s ease-in-out;
+    }
+}

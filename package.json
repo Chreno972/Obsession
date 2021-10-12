@@ -1,0 +1,17 @@
+{
+  "name": "obsession_project",
+  "version": "1.0.0",
+  "description": "Personal Dashboard",
+  "main": "./assets/controllers/js/main.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christophe Réno",
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^3.2.1"
+  }
+}
