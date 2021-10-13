@@ -9,18 +9,21 @@ const manage_profile = document.getElementById("manage_profile");
 // profile manager container
 const profile_manager_close_button = document.getElementById("profile_manager_close_button");
 const profile_manager = document.getElementById("profile_manager");
-// page profile picture container
-const image_container = document.getElementById("avatar");
+const submit_items = document.getElementById("submit_profile_items");
 // page profile picture image
 const the_picture = document.getElementById("av_pic");
 // profile manager updaters
 const upload_input = document.getElementById("the_picture");
-const validate_button = document.getElementById("submit_profile_items");
 // profile manager informations
 const profile_image = document.getElementById("avatar_pic");
 const profile_contacts = document.getElementById("contact_infos");
 const profile_first_name = document.getElementById("first_name_infos");
 const profile_last_name = document.getElementById("last_name_infos");
+// profile manager updates
+const update_contact = document.getElementById("the_mail");
+const update_first_name = document.getElementById("the_user_first_name");
+const update_last_name = document.getElementById("the_user_last_name");
+const update_full_name = `${update_first_name.value} ${update_last_name.value}`
 
 // ? Manage the container display
 // profile manager container is not displayed by default
@@ -46,6 +49,11 @@ upload_input.addEventListener("change", function(e) {
     }
     reader.readAsDataURL(upload_input.files[0])
 }, false);
+
+submit_items.addEventListener("click", ()=> {
+    m.single_localSavings(`${update_first_name.value} ${update_last_name.value}`, "user_names");
+    m.single_localSavings(update_contact.value, "contact_infos");
+})
 
 function update_on_load() {
     the_picture.setAttribute("src", JSON.parse(localStorage.getItem("profile_picture")));

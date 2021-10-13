@@ -10,6 +10,7 @@
     opacity: 0;
 }
 
+
 // ? chart canvas styles
 canvas#total_worked_hours_chart {
     width: 100%!important;
@@ -445,6 +446,8 @@ h5 {
     z-index: 3;
     margin: 0 auto;
     letter-spacing: 3px;
+    transform: translateX(-10000px);
+    transition: 1s ease-in-out;
     #profile_informations_section {
         width: 80%;
         border: 1px solid #ddd;

@@ -46,7 +46,7 @@ allows you to record the time you've spent learning every day and on particular 
 
 **Profile Manager**
 allows you to access your actual informations, change your first name, last name, your email adress and upload a profile picture.
-> On this version you can only upload a profile picture
+You can change everything.
 
 **Informations**
 Gives you advices to understand how to use your dashboard.
