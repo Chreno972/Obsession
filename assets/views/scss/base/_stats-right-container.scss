@@ -1,0 +1,11 @@
+
+#stats_visuals_div {
+    grid-column: 3/13;
+    grid-row: 1/4;
+    width: 100%;
+    height: auto;
+    padding: 30px 50px 50px 50px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+}

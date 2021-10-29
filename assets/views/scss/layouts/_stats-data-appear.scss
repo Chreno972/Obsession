@@ -1,0 +1,97 @@
+#appear_data_container {
+    transition: 1s ease-in-out;
+    width: 100%;
+    height: 1000px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background:rgba(41, 41, 41, 0.527);
+    z-index: 2;
+    margin: 0 auto;
+    letter-spacing: 3px;
+    form {
+        width: 30%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 50px auto 0 auto;
+        padding: 25px;
+        color: #222;
+        background-color: white;
+        border-radius: 10px;
+        h4 {
+            width: 100%;
+            text-align: center;
+            color: #3552F2;
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: large;
+            font-weight: bolder;
+        }
+        #close_button {
+            width: 25px;
+            height: 25px;
+            border-radius: 100%;
+            text-align: center;
+            position: relative;
+            top: -5px;
+            left: 48%;
+            background: #dc3545;
+            border: none;
+            box-shadow: 1px 1px 5px #3552F2;
+            padding-left: 3px;
+            cursor: pointer;
+            &:active {
+                box-shadow: none;
+            }
+        }
+        #apart_date {
+            width: 70%;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #3552F2;
+            box-shadow: 1px 1px 5px #3552F2;
+            border-radius: 5px;
+            #validate_date {
+                cursor: pointer;
+                &:active {
+                    box-shadow: none;
+                }
+            }
+        }
+        input {
+            width: 200px;
+            height: 40px;
+            border: none;
+            box-shadow: 1px 1px 5px #222;
+            margin: 5px auto 30px auto;
+            padding: 10px;
+            border-top: 3px solid #3552F2;
+            color: #3552F2;
+            &:focus {
+                border-top: none;
+                border: 3px solid #3552F2;
+                box-shadow: 1px 1px 10px #3552F2;
+                outline: none;
+            }
+        }
+        button {
+            width: 200px;
+            height: 40px;
+            border-radius: 5px;
+            background: #3552F2;
+            color: white;
+            border: none;
+            
+            box-shadow: 1px 1px 5px #222;
+        }
+    }
+}

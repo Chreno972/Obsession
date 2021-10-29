@@ -1,623 +1,76 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
-// ? TOGGLE CLASSES
-.completed {
-    text-decoration: line-through;
-    opacity: 0.5;
-}
+@import './base/stats-body';
+@import './base/stats-navbar';
+@import './base/stats-right-container';
+@import './components/stats-charts';
+@import './layouts/stats-data-appear';
+@import './layouts/stats-infos-appear';
+@import './layouts/stats-profile-appear';
+@import './layouts/stats-profile';
+@import './layouts/stats-recaps';
+@import './layouts/stats-tasks';
+@import './utils/stats-fonts';
+@import './utils/stats-toggle-classes';
+@import './utils/variables';
 
-.fall{
-    transform: translateY(8rem) rotate(20deg);
-    opacity: 0;
-}
-
-
-// ? chart canvas styles
-canvas#total_worked_hours_chart {
-    width: 100%!important;
-    height: 700px!important;
-    margin: 0!important;
-}
-
-canvas#stats_lta_chart {
-    width: 100%!important;
-    height: 350px!important;
-    margin: 0!important;
-}
-canvas#stats_learn_tp_chart {
-    width: 100%!important;
-    height: 350px!important;
-    margin: 0!important;
-}
-
-// ? RESET CSS
-// *, ::before, ::after {
-//     box-sizing: border-box;
-//     margin: 0;
-//     padding: 0;
-// }
-
-// ? MAIN CSS
-body, html {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Mulish', sans-serif;
-}
-
-h5 {
-    color: #3552F2;
-    font-weight: bolder;
-    margin-bottom: 50px;
-    width: 100%;
-    letter-spacing: 3px;
-}
-#stats_basic_container {
-    width: 100%;
-    height: auto;
-    background: white;
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-gap: 10px;
-
-    ///
-
-    #stats_navbar_container {
-        width: 100%;
-        height: auto;
-        grid-column: 1/3;
-        grid-row: 1/4;
-        display: flex;
-        flex-direction: column;
-
-        .container-fluid {
-            padding: 0;
-            display: block;
-        }
-            
-        a.navbar-brand{
-            margin-top: 15px;
-            font-family: 'Mulish', sans-serif;
-            font-weight: bolder;
-            font-size: 21px;
-            color: #A4A6B3;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            img {
-                margin-right: 7px;
-            }
-        }
-        #right_nav_container {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            margin: 75px auto 0 auto;
-            text-align: center;
-            #number_of_tasks {
-                color: #3552F2;
-                font-weight: bolder;
-            }
-            #nav_tasks {
-                a {
-                    text-decoration: none;
-                }
-            }
-            #manage_profile, #view_data, #manage_data, #nav_tasks {
-                color: white;
-                font-size: 18px;
-                width: 100%;
-                height: 40px;
-                margin: 0 auto 40px auto;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                transition: 0.5s ease-in-out;
-                border: 1px solid rgb(41, 41, 41);
-                &:hover {
-                    border: 5px solid #3552F2;
-                    color: #3552F2;
-                    border-radius: 0;
-                }
-            }
-        }
-    }
-
-// ---------------------------------------------------------------------------
-// ---------------------------------------------------------------------------
-
-    #stats_visuals_div {
-        grid-column: 3/13;
-        grid-row: 1/4;
-        width: 100%;
-        height: auto;
-        padding: 30px 50px 50px 50px;
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: repeat(12, 1fr);
-
-        #presentation {
-            grid-column: 1/13;
-            grid-row: 1/2;
-            width: 100%;
-            height: 100px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            margin-bottom: 50px;
-            #av_pic, #avatar_pic {
-                width: 100px;
-                height: 110px;
-                border-radius: 100%;
-            }
-            #imported_user_name {
-                color: #6275E6;
-                font-weight: bolder;
-            }
-        }
-        #stats_second_div {
-            grid-column: 1/13;
-            grid-row: 2/9;
-            width: 100%;
-            height: auto;
-            border: 1px solid #ddd;
-            border-radius: 15px;
-            padding: 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            #stats_total_worked_hours_container {
-                width: 70%;
-                height: auto;
-                text-align: center;
-            }
-            #stats_second_div_recap {
-                width: 30%;
-                height: auto;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
-                text-align: center;
-                p {
-                    font-size:medium;
-                    font-weight:bolder;
-                    letter-spacing: 3px;
-                    color: rgb(110, 110, 110);
-                }
-                .stats_middle_div_containers {
-                    width: 100%;
-                    height: 100px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    border-bottom: 1px solid #ddd;
-                }
-                .topics_second_div_results {
-                    font-size: 21px;
-                }
-                #stats_fthc_int_number{
-                    color: #DC791D;
-                }
-                #stats_sthc_int_number {
-                    color: #1CA617;
-                }
-                #stats_tthc_int_number{
-                    color: #6275E6;
-                }
-                #stats_fothc_int_number {
-                    color: #F22727;
-                }
-                #stats_fithc_int_number {
-                    color: purple;
-                }
-            }
-        }
-        #stats_tasks_container {
-            grid-column: 1/13;
-            grid-row: 9/13;
-            width: 100%;
-            height: 500px;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            #stats_tasks_title {
-                text-align: center;
-            }
-            #stats_add_new_task_container {
-                width: 100%;
-                height: auto;
-                #stats_add_new_task_form {
-                    width: 100%;
-                    height: auto;
-                    display: flex;
-                    input {
-                        width: 85%;
-                        height: 40px;
-                        &:focus{
-                            outline: none;
-                        }
-                        padding: 10px;
-                    }
-                    #stats_tasks_todo_button {
-                        background-color: #3552F2;
-                        color: white;
-                        border: none;
-                        border-radius: 2px;
-                        width: 35px;
-                        height: 30px;
-                        margin-left: -45px;
-                        align-self: center;
-                    }
-                    select{
-                        height: 40px;
-                        text-align: center;
-                        &:focus{
-                            outline: none;
-                        }
-                    }
-                    #stats_add_new_task_select_container {
-                        width: 15%;
-                        height: 40px;
-                        margin: 0 auto;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                    }
-                }
-            }
-            #stats_new_tasks_container { /* todolist */
-                width: 100%;
-                height: auto;
-                text-align: center;
-                margin: 15px auto 0 auto;
-                min-width: 30%;
-                list-style-type: none;
-                display: flex;
-                flex-direction: column-reverse;
-                .stats_tasks_todo_container{ /* todo */
-                    box-shadow: 0px 0px 5px #222;
-                    height: 40px;
-                    margin: 0.5rem;
-                    background: white;
-                    color: #222;
-                    font-size: 1rem;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    transition: all 1s ease;
-                    border: none;
-                    border-radius: 5px;
-                    padding: 5px;
-                    li {
-                        flex: 1; 
-                        // prend toute la place dans le contenu, ce qui pousse le reste sur la droite
-                    }
-                    .stats_tasks_completed_button, .stats_tasks_trash_button {
-                        width: 40px;
-                        height: 30px;
-                        color: white;
-                        border: none;
-                        padding: 1rem;
-                        cursor: pointer;
-                        font-size: 1rem;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        border-radius: 5px;
-                    }
-                    .stats_tasks_completed_button {
-                        background: #3552F2;
-                    }
-                    .stats_tasks_trash_button {
-                        background: #dc3545;
-                        margin: 0 0 0 5px;
-                    }
-                    .stats_tasks_todo_li { // 'todoitem'
-                        padding: 0rem 0.5rem;
-                        text-align: left;
-                    }
-                    .fa-check, .fa-trash {
-                        pointer-events: none;
-                    }
-                }
-
-            }
-        }
-    }
-
-// ---------------------------------------------------------------------------
-// ---------------------------------------------------------------------------
-
-    #appear_data_container {
-        transition: 1s ease-in-out;
-        width: 100%;
-        height: 1000px;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        background:rgba(41, 41, 41, 0.527);
-        z-index: 2;
+#stats_agenda_container {
+    grid-column: 1/13;
+    grid-row: 12/16;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
+    background: #212529;
+    #agenda_item_list {
+        width: 96%;
+        height: 500px;
         margin: 0 auto;
-        letter-spacing: 3px;
-        form {
-            width: 30%;
-            height: auto;
+        .agenda_item {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
-            margin: 50px auto 0 auto;
-            padding: 25px;
+            width: 96%;
+            height: 75px;
+            background: #fff;
+            margin: 20px auto;
+            border-radius: 15px;
             color: #222;
-            background-color: white;
-            border-radius: 10px;
-            h4 {
-                width: 100%;
-                text-align: center;
-                color: #3552F2;
-                margin-bottom: 20px;
-            }
-            label {
-                font-size: large;
-                font-weight: bolder;
-            }
-            #close_button {
-                width: 25px;
-                height: 25px;
-                border-radius: 100%;
-                text-align: center;
-                position: relative;
-                top: -5px;
-                left: 48%;
-                background: #dc3545;
-                border: none;
-                box-shadow: 1px 1px 5px #3552F2;
-                padding-left: 3px;
-                cursor: pointer;
-                &:active {
-                    box-shadow: none;
-                }
-            }
-            #apart_date {
-                width: 70%;
-                height: 150px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                padding: 15px;
-                margin-bottom: 20px;
-                border: 1px solid #3552F2;
-                box-shadow: 1px 1px 5px #3552F2;
-                border-radius: 5px;
-                #validate_date {
-                    cursor: pointer;
-                    &:active {
-                        box-shadow: none;
-                    }
-                }
-            }
-            input {
-                width: 200px;
-                height: 40px;
-                border: none;
-                box-shadow: 1px 1px 5px #222;
-                margin: 5px auto 30px auto;
-                padding: 10px;
-                border-top: 3px solid #3552F2;
-                color: #3552F2;
-                &:focus {
-                    border-top: none;
-                    border: 3px solid #3552F2;
-                    box-shadow: 1px 1px 10px #3552F2;
-                    outline: none;
-                }
-            }
-            button {
-                width: 200px;
-                height: 40px;
-                border-radius: 5px;
-                background: #3552F2;
-                color: white;
-                border: none;
-                
-                box-shadow: 1px 1px 5px #222;
-            }
-        }
-    }    
-}
-
-// ---------------------------------------------------------------------------
-// ---------------------------------------------------------------------------
-
-#profile_manager {
-    width: 100%;
-    height: 1500px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    background:rgba(41, 41, 41, 0.527);
-    z-index: 3;
-    margin: 0 auto;
-    letter-spacing: 3px;
-    transform: translateX(-10000px);
-    transition: 1s ease-in-out;
-    #profile_informations_section {
-        width: 80%;
-        border: 1px solid #ddd;
-        padding: 20px;
-        margin-bottom: 50px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    #manage_profile_section {
-        width: 80%;
-        border: 1px solid #ddd;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    form {
-        width: 30%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 50px auto 0 auto;
-        padding: 25px;
-        color: #222;
-        background-color: white;
-        border-radius: 10px;
-        #profile_manager_close_button {
-            width: 25px;
-            height: 25px;
-            border-radius: 100%;
-            font-weight: bolder;
-            text-align: center;
-            position: relative;
-            top: -5px;
-            left: 48%;
-            background: #dc3545;
-            color: white;
-            border: none;
-            box-shadow: 1px 1px 5px #3552F2;
-            padding-left: 3px;
-            cursor: pointer;
-            &:active {
-                box-shadow: none;
-            }
-        }
-        h4 {
-            width: 100%;
-            text-align: center;
-            color: #3552F2;
-            margin-bottom: 20px;
-            font-weight: bolder;
-        }
-        label {
-            font-size: large;
-            font-weight: bolder;
-        }
-        input {
-            width: 200px;
-            height: 33px;
-            border: none;
-            box-shadow: 1px 1px 5px #222;
-            margin: 5px auto 30px auto;
-            border-top: 3px solid #3552F2;
-            color: #3552F2;
-            &:focus {
-                border-top: none;
-                border: 3px solid #3552F2;
-                box-shadow: 1px 1px 10px #3552F2;
-                outline: none;
-            }
-        }
-        #avatar_pic {
-            width: 100px;
-            height: 110px;
-            border-radius: 100%;
-            margin-bottom: 10px;
-        }
-        .existing_infos {
-            width: 80%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 15px;
-            p {
-                font-weight: bolder;
+            font-size: 18px;
+            .agenda_item_topic {
                 margin: 0 auto;
             }
-        }
-        #the_picture {
-            width: auto;
-            height: auto;
-        }
-        button {
-            width: 200px;
-            height: 40px;
-            border-radius: 5px;
-            background: #3552F2;
-            color: white;
-            border: none;
-            box-shadow: 1px 1px 5px #222;
-        }
-    }
-}
-
-// ---------------------------------------------------------------------------
-// ---------------------------------------------------------------------------
-
-#infos_section {
-    width: 100%;
-    height: 1500px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    background:rgba(41, 41, 41, 0.527);
-    z-index: 3;
-    margin: 0 auto;
-    letter-spacing: 3px;
-    transition: 2s ease-in-out;
-    #informations_close_button {
-        width: 25px;
-        height: 25px;
-        border-radius: 100%;
-        font-weight: bolder;
-        text-align: center;
-        position: relative;
-        top: -5px;
-        left: 48%;
-        background: #dc3545;
-        color: white;
-        border: none;
-        box-shadow: 1px 1px 5px #3552F2;
-        padding-left: 3px;
-        cursor: pointer;
-        &:active {
-            box-shadow: none;
-        }
-    }
-    #form_like {
-        width: 60%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 50px auto 0 auto;
-        padding: 25px;
-        color: #222;
-        background-color: white;
-        border-radius: 10px;
-        .infos_containers {
-            width: 100%;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            padding: 10px;
-            box-shadow: 1px 1px 5px #222;
-        }
-        h5 {
-            color: #6275E6;
-            font-weight: bolder;
-            margin-bottom: 10px;
-        }
-        blockquote {
-            text-align: justify;
+            #agenda_item_title {
+                background: #4285F4;
+                color: white;
+                border-radius: 15px;
+                padding: 5px 15px
+            }
+            #agenda_item_date {
+                background:#DB4437;
+                color: white;
+                border-radius: 15px;
+                padding: 5px 15px
+            }
+            #agenda_item_hour {
+                background: #F4B400;
+                color: white;
+                border-radius: 15px;
+                padding: 5px 15px
+            }
+            #agenda_item_categorie {
+                background: #0F9D58;
+                color: white;
+                border-radius: 15px;
+                padding: 5px 15px
+            }
+            #agenda_item_description {
+                background: #222;
+                color: white;
+                border-radius: 15px;
+                padding: 5px 15px
+            }
         }
     }
 }
-

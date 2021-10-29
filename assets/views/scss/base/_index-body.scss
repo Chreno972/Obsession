@@ -1,0 +1,29 @@
+body {
+    width: 100%;
+    height: 100vh;
+    background-image: url("/assets/img/pexels-content-pixie-2736499.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        right: auto;
+        color: #3552F2;
+        text-shadow: 1px 1px 5px #ddd;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            display: flex;
+            margin-right: 10px;
+            text-shadow: 1px 1px 5px #222;
+            align-self: center;
+            justify-self: center;
+        }
+    }
+}

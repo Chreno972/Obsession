@@ -1,0 +1,27 @@
+// ? MAIN CSS
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Mulish', sans-serif;
+    h5 {
+        color: #3552F2;
+        font-weight: bolder;
+        margin-bottom: 50px;
+        width: 100%;
+        letter-spacing: 3px;
+    }
+    #stats_basic_container {
+        width: 100%;
+        height: auto;
+        background: white;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-gap: 10px;
+        @media (max-width: 599px) {
+            grid-template-columns: 1fr;
+        }
+    }
+}

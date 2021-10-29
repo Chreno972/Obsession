@@ -1,0 +1,120 @@
+#stats_tasks_container {
+    grid-column: 1/13;
+    grid-row: 9/12;
+    width: 100%;
+    height: 500px;
+    padding: 50px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    background: #212529;
+    overflow: hidden;
+    #stats_tasks_title {
+        text-align: center;
+    }
+    #stats_add_new_task_container {
+        width: 100%;
+        height: auto;
+        #stats_add_new_task_form {
+            width: 100%;
+            height: auto;
+            display: flex;
+            input {
+                width: 85%;
+                height: 40px;
+                &:focus{
+                    outline: none;
+                }
+                padding: 10px;
+            }
+            #stats_tasks_todo_button {
+                background-color: #3552F2;
+                color: white;
+                border: none;
+                border-radius: 2px;
+                width: 35px;
+                height: 30px;
+                margin-left: -45px;
+                align-self: center;
+            }
+            select{
+                height: 40px;
+                text-align: center;
+                &:focus{
+                    outline: none;
+                }
+            }
+            #stats_add_new_task_select_container {
+                width: 15%;
+                height: 40px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+            }
+        }
+    }
+    #stats_new_tasks_container { /* todolist */
+        width: 100%;
+        height: auto;
+        text-align: center;
+        margin: 40px auto 0 auto;
+        padding: 20px 0;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column-reverse;
+        overflow-y: scroll;
+        &::-webkit-scrollbar { 
+            display: none;
+        }
+        .stats_tasks_todo_container{ /* todo */
+            box-shadow: 0px 0px 5px #222;
+            height: 40px;
+            margin: 0.5rem 0;
+            background: white;
+            color: #222;
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 1s ease;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            li {
+                flex: 1; 
+                // prend toute la place dans le contenu, ce qui pousse le reste sur la droite
+            }
+            .stats_tasks_completed_button, .stats_tasks_trash_button {
+                width: 40px;
+                height: 30px;
+                color: white;
+                border: none;
+                padding: 1rem;
+                cursor: pointer;
+                font-size: 1rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+            }
+            .stats_tasks_completed_button {
+                background: #3552F2;
+            }
+            .stats_tasks_trash_button {
+                background: #dc3545;
+                margin: 0 0 0 5px;
+            }
+            .stats_tasks_todo_li { // 'todoitem'
+                padding: 0rem 0.5rem;
+                text-align: left;
+            }
+            .fa-check, .fa-trash {
+                pointer-events: none;
+            }
+        }
+
+    }
+}
